@@ -1,10 +1,14 @@
-document.getElementById("calculate-balance").addEventListener("click", function(){
-    
+function gettingIncome(){
     // getting the income amount
     const income = document.getElementById("income").value;
     const incomeValue = parseInt(income);
     // console.log(incomeValue)
+    return incomeValue;
+}
+
+document.getElementById("calculate-balance").addEventListener("click", function(){
     
+    const incomeValue = gettingIncome();
     // getting the expenses and adding them
     //food cost
     const foodCost  = document.getElementById("food").value;
