@@ -21,16 +21,21 @@ document.getElementById("calculate-balance").addEventListener("click", function(
     const totalExpense = foodCostValue + rentCostValue + clothesCostValue;
     console.log(totalExpense);
 
-    // showing of the expenses
-    const expenseShow = document.getElementById("total-expense");
-    expenseShow.innerText = totalExpense;
-
     //balance 
     const balance = incomeValue - totalExpense;
 
-    //showing of the balance
-    const balanceShow = document.getElementById("balance");
-    balanceShow.innerText = balance;
+    if(incomeValue < totalExpense){
+        alert("enter valid amount")
+    }
+    if(typeof(balance) == "number" && typeof(totalExpense) == "number"){
+        // showing of the expenses
+        const expenseShow = document.getElementById("total-expense");
+        expenseShow.innerText = totalExpense;
+
+        //showing of the balance
+        const balanceShow = document.getElementById("balance");
+        balanceShow.innerText = balance;
+    }
 
 })
 
