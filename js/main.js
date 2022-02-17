@@ -84,8 +84,9 @@ document.getElementById("saving-btn").addEventListener("click", function(){
     // calculating the remianing balance 
     const remainingBalance = previousBalance - savings;
 
-    if(isNaN(savingAmountValue) == false){
-        if(savingAmountValue > previousBalance){
+    if(isNaN(savingAmountValue) == false && isNaN(remainingBalance) == false
+    && isNaN(previousBalance) == false){
+        if(remainingBalance < 0){
             document.getElementById("error-msg1").style.display = "block";
             document.getElementById("error-msg2").style.display = "none";
         }
