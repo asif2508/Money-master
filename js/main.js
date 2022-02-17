@@ -1,3 +1,4 @@
+// gettingIncome 
 function gettingIncome(){
     // getting the income amount
     const income = document.getElementById("income").value;
@@ -6,9 +7,8 @@ function gettingIncome(){
     return incomeValue;
 }
 
-document.getElementById("calculate-balance").addEventListener("click", function(){
-    
-    const incomeValue = gettingIncome();
+// getting all expenses 
+function gettingExpenses(){
     // getting the expenses and adding them
     //food cost
     const foodCost  = document.getElementById("food").value;
@@ -23,11 +23,28 @@ document.getElementById("calculate-balance").addEventListener("click", function(
 
     // total expenses
     const totalExpense = foodCostValue + rentCostValue + clothesCostValue;
-    console.log(totalExpense);
+    // console.log(totalExpense);
+    return totalExpense;
+}
 
+// getting all the balance 
+function gettingBalance(){
+    const incomeValue = gettingIncome();
+    const totalExpense = gettingExpenses()
     //balance 
     const balance = incomeValue - totalExpense;
-    if(isNaN(balance) == false && isNaN(totalExpense)==false && isNaN(incomeValue)==false && isNaN(foodCostValue)==false && isNaN(rentCostValue)==false && isNaN(clothesCostValue)==false){
+    return balance;
+}
+
+// calculate button 
+document.getElementById("calculate-balance").addEventListener("click", function(){
+    
+    // calling functions
+    const incomeValue = gettingIncome();
+    const totalExpense = gettingExpenses()
+    const balance = gettingBalance();
+
+    if(isNaN(balance) == false && isNaN(totalExpense)==false){
         if(incomeValue < totalExpense){
             document.getElementById("error-msg1").style.display = "block";
             document.getElementById("error-msg2").style.display = "none";
@@ -50,11 +67,10 @@ document.getElementById("calculate-balance").addEventListener("click", function(
     }
 })
 
+// saving buttons
 document.getElementById("saving-btn").addEventListener("click", function(){
     // getting the income amount
-    const income = document.getElementById("income").value;
-    const incomeValue = parseInt(income);
-
+    const incomeValue = gettingIncome();
     // getting saving amount and setting them 
     const savingAmount = document.getElementById("saving-amount").value;
     const savingAmountValue = parseInt(savingAmount);
@@ -63,11 +79,10 @@ document.getElementById("saving-btn").addEventListener("click", function(){
 
     // remaining balance
     //getting the previous balance
-    const previousBalance  = document.getElementById("balance").innerText;
-    const previousBalanceValue  = parseInt(previousBalance);
+    const previousBalance  = gettingBalance();
 
     // calculating the remianing balance 
-    const remainingBalance = previousBalanceValue - savings;
+    const remainingBalance = previousBalance - savings;
 
     if(isNaN(savingAmountValue) == false){
         if(savingAmountValue > previousBalance){
