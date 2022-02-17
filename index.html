@@ -12,16 +12,21 @@
     <link rel="stylesheet" href="styles/style.css">
 </head>
 <body>
+    <!-- header -->
     <header>
         <h1 class="heading mt-5 fw-bold"> OLD BANK</h1>
     </header>
+    <!-- main  -->
     <main>
+        <!-- main section  -->
         <section class="main-section mt-5">
             <div class="container">
                 <div class="row g-2">
+                    <!-- image column  -->
                     <div class="col-12 col-md-6 col-lg-6">
                         <img height="90%" width="100%" src="https://images.unsplash.com/photo-1581281664590-ea70e1f2f323?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGJhbmt8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="">
                     </div>
+                    <!-- form column  -->
                     <div class="col-12 col-md-6 col-lg-6">
                         <div class="d-flex justify-content-end">
                             <div class="d-flex align-items-start justify-content-center flex-column">
@@ -34,21 +39,30 @@
                                 <!-- Expenses -->
 
                                 <h3 class="text-center mb-4"> Expenses</h3>
+
                                 <h6>Food:</h6>
                                 <p> <input id="food" class="mb-3" type="text" placeholder="Enter your food cost"></p>
+
                                 <h6>Rent:</h6>
                                 <p> <input id="rent" class="mb-3" type="text" placeholder="Enter your rent cost"></p>
+
                                 <h6>Clothes:</h6>
                                 <p> <input id="clothes" class="mb-1" type="text" placeholder="Enter your clothes cost"></p>
                                 
                                 <button id="calculate-balance" class="btn btn-primary mb-3 calculate-btn" type="button">Calculate</button>
 
                                 <h5 class="text-center mb-3">Total Expenses: $<span id="total-expense">00</span> </h5>
+
                                 <h5 class="text-center mb-5">Balance: $<span id="balance">00</span> </h5>
 
+                                <!-- saving -->
                                 <h6 class="">Save: <input id="saving-amount" class="savings me-2" type="text" placeholder="Savings"> % <button id="saving-btn" class="btn btn-primary save-btn ms-2" type="button">Save</button></h6>
+
                                 <h5 class="text-center mb-3">Saving Amount: $<span id="saving-total">00</span> </h5>
+
                                 <h5 class="text-center mb-5">Remaining Balance: $<span id="remaining-balance">00</span> </h5>
+
+                                <!-- error messages -->
                                 <h3 id="error-msg1">Insufficient Amount!</h3>
                                 <h3 id="error-msg2">Please Enter correct amount!</h3>
 
