@@ -15,6 +15,10 @@ input{
 .savings{
     width:20%;
 }
+.save-btn{
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
 .footer{
     background-color: black;
     color: white;
