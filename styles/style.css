@@ -19,6 +19,16 @@ input{
     padding-top: 3px;
     padding-bottom: 3px;
 }
+#error-msg1{
+    color: brown;
+    display: none;
+    margin-bottom: 20px;
+}
+#error-msg2{
+    color: brown;
+    display: none;
+    margin-bottom: 20px;
+}
 .footer{
     background-color: black;
     color: white;

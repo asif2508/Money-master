@@ -23,20 +23,27 @@ document.getElementById("calculate-balance").addEventListener("click", function(
 
     //balance 
     const balance = incomeValue - totalExpense;
-
-    if(incomeValue < totalExpense){
-        alert("enter valid amount")
+    if(isNaN(balance) == false && isNaN(totalExpense)==false && isNaN(incomeValue)==false && isNaN(foodCostValue)==false && isNaN(rentCostValue)==false && isNaN(clothesCostValue)==false){
+        if(incomeValue < totalExpense){
+            document.getElementById("error-msg1").style.display = "block";
+            document.getElementById("error-msg2").style.display = "none";
+        }
+        else{
+            document.getElementById("error-msg1").style.display = "none";
+            document.getElementById("error-msg2").style.display = "none";
+            // showing of the expenses
+            const expenseShow = document.getElementById("total-expense");
+            expenseShow.innerText = totalExpense;
+    
+            //showing of the balance
+            const balanceShow = document.getElementById("balance");
+            balanceShow.innerText = balance;
+        }    
     }
-    if(typeof(balance) == "number" && typeof(totalExpense) == "number"){
-        // showing of the expenses
-        const expenseShow = document.getElementById("total-expense");
-        expenseShow.innerText = totalExpense;
-
-        //showing of the balance
-        const balanceShow = document.getElementById("balance");
-        balanceShow.innerText = balance;
+    else{
+        document.getElementById("error-msg2").style.display = "block";
+        document.getElementById("error-msg1").style.display = "none";
     }
-
 })
 
 document.getElementById("saving-btn").addEventListener("click", function(){
@@ -48,10 +55,7 @@ document.getElementById("saving-btn").addEventListener("click", function(){
     const savingAmount = document.getElementById("saving-amount").value;
     const savingAmountValue = parseInt(savingAmount);
 
-    const savings = incomeValue - savingAmountValue;
-    
-    const savingTotal = document.getElementById("saving-total");
-    savingTotal.innerText = savings;
+    const savings = incomeValue * (savingAmountValue/100);
 
     // remaining balance
     //getting the previous balance
@@ -60,7 +64,25 @@ document.getElementById("saving-btn").addEventListener("click", function(){
 
     // calculating the remianing balance 
     const remainingBalance = previousBalanceValue - savings;
-    //showing the remianing balance
-    const remainingBalanceShow = document.getElementById("remaining-balance");
-    remainingBalanceShow.innerText = remainingBalance;
+
+    if(isNaN(savingAmountValue) == false){
+        if(savingAmountValue > previousBalance){
+            document.getElementById("error-msg1").style.display = "block";
+            document.getElementById("error-msg2").style.display = "none";
+        }
+        else{
+            document.getElementById("error-msg1").style.display = "none";
+            document.getElementById("error-msg2").style.display = "none";
+            //shwoing savings
+            const savingTotal = document.getElementById("saving-total");
+            savingTotal.innerText = savings;
+            //showing the remianing balance
+            const remainingBalanceShow = document.getElementById("remaining-balance");
+            remainingBalanceShow.innerText = remainingBalance;
+        }    
+    }
+    else{
+        document.getElementById("error-msg2").style.display = "block";
+        document.getElementById("error-msg1").style.display = "none";
+    }
 })
